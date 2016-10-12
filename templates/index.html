@@ -5,9 +5,11 @@
   <img src="{{ url_for('static', filename='banner.png') }}">
 </head>
 <body>
-<h1>Be my friends</h1>
-<h1>These are all my friends!</h1>
+<h1>Be Marshall and Kai's friends</h1>
+<br><br>
+<h3>The following are all my friends!</h3>
 <!-- with all the data we can then construct a more structured output -->
+<br>
 {% for friend in all_friends: %}
    <p>ID: {{ friend['id'] }}</p>
    <p>First Name: {{ friend['first_name'] }}</p>
@@ -15,14 +17,15 @@
    <p>Occupation: {{ friend['occupation'] }}</p>
    <hr>
 {% endfor %}
-  <h2>Add a Friend</h2>
+<br>
+  <h3>Add a Friend</h3>
   <form action='/friends' method='POST'>
     <label for="first_name">First Name:<input type="text" name="first_name" id="first_name"></label>
     <label for="last_name">Last Name:<input type="text" name="last_name" id="last_name"></label>
     <label for="occupation">Occupation:<input type="text" name="occupation" id="occupation"></label>
     <input type="submit" value="Add">
   </form>
-  <h2>update a Friend</h2>
+  <h3>update a Friend</h3>
   <form action='/update_friend/<friend_id>' method='POST'>
     <label for="id1">ID:<input type="text" name="id1" id="id1"></label>
     <label for="first_name1">First Name:<input type="text" name="first_name1" id="first_name1"></label>
@@ -30,7 +33,7 @@
     <label for="occupation1">Occupation:<input type="text" name="occupation1" id="occupation1"></label>
     <input type="submit" value="Update">
   </form>
-  <h2>Delete a Friend</h2>
+  <h3>Delete a Friend</h3>
   <form method="post" action="/remove_friend/confirm">
     <label for="id2">ID:<input type="text" name="id2" id="id2"></label>
     <input type="submit" value="Delete">
